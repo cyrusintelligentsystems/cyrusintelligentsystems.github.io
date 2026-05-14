@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cyrus Intelligent Systems Inc. builds AI, software, data, and intelligent automation solutions for companies, public-sector organizations, and research partners." />
+  <meta name="keywords" content="Cyrus Intelligent Systems, AI, software development, intelligent systems, automation, data analytics, research and development, Canada" />
+  <meta name="author" content="Cyrus Intelligent Systems Inc." />
+
+  <title>Cyrus Intelligent Systems Inc. | AI & Software Solutions</title>
+
+  <style>
+    :root {
+      --bg: #08111f;
+      --bg-soft: #0f1c31;
+      --card: rgba(255, 255, 255, 0.075);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #f6f8fb;
+      --muted: #b8c3d6;
+      --muted-2: #8f9bb0;
+      --primary: #6ee7f9;
+      --primary-2: #a78bfa;
+      --accent: #38bdf8;
+      --success: #34d399;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(110, 231, 249, 0.18), transparent 32rem),
+        radial-gradient(circle at 80% 10%, rgba(167, 139, 250, 0.16), transparent 30rem),
+        linear-gradient(180deg, #08111f 0%, #0a1220 45%, #08111f 100%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 40px, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(8, 17, 31, 0.72);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 760;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: #06101f;
+      font-weight: 900;
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.25);
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--muted-2);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 12px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.13);
+      border-color: rgba(255, 255, 255, 0.24);
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: #06101f;
+      border: 0;
+      box-shadow: 0 18px 46px rgba(56, 189, 248, 0.28);
+    }
+
+    .hero {
+      padding: 96px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: center;
+      gap: 54px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border: 1px solid rgba(110, 231, 249, 0.22);
+      background: rgba(110, 231, 249, 0.08);
+      color: #dffbff;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--success);
+      box-shadow: 0 0 20px rgba(52, 211, 153, 0.8);
+    }
+
+    h1 {
+      font-size: clamp(2.55rem, 7vw, 5.35rem);
+      line-height: 0.98;
+      letter-spacing: -0.07em;
+      max-width: 820px;
+      margin-bottom: 24px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 18%, var(--primary) 52%, var(--primary-2) 92%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      font-size: clamp(1.06rem, 2vw, 1.28rem);
+      color: var(--muted);
+      max-width: 690px;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 680px;
+    }
+
+    .trust-item {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .trust-item strong {
+      color: var(--text);
+      display: block;
+      font-size: 1.02rem;
+      margin-bottom: 2px;
+    }
+
+    .visual-card {
+      position: relative;
+      min-height: 500px;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04)),
+        radial-gradient(circle at top, rgba(110, 231, 249, 0.2), transparent 22rem);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      overflow: hidden;
+    }
+
+    .visual-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 42px 42px;
+      transform: rotate(10deg);
+      opacity: 0.45;
+    }
+
+    .system-node {
+      position: absolute;
+      border-radius: 22px;
+      background: rgba(8, 17, 31, 0.74);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.28);
+      padding: 18px;
+    }
+
+    .system-node h3 {
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .system-node p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .node-main {
+      left: 50%;
+      top: 50%;
+      width: 230px;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      background: linear-gradient(135deg, rgba(110,231,249,0.18), rgba(167,139,250,0.16));
+    }
+
+    .node-top {
+      top: 58px;
+      left: 40px;
+      width: 190px;
+    }
+
+    .node-right {
+      top: 130px;
+      right: 34px;
+      width: 200px;
+    }
+
+    .node-bottom {
+      bottom: 58px;
+      left: 70px;
+      width: 215px;
+    }
+
+    .node-mini {
+      bottom: 74px;
+      right: 50px;
+      width: 158px;
+    }
+
+    .pulse {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      background: radial-gradient(circle, #ffffff 0 10%, var(--primary) 11% 36%, rgba(110,231,249,0.12) 37% 100%);
+      position: relative;
+    }
+
+    .pulse::before,
+    .pulse::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(110, 231, 249, 0.45);
+      animation: pulse 3s ease-out infinite;
+    }
+
+    .pulse::after {
+      animation-delay: 1.4s;
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); opacity: 0.75; }
+      to { transform: scale(1.75); opacity: 0; }
+    }
+
+    section {
+      padding: 78px 0;
+    }
+
+    .section-header {
+      max-width: 720px;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      color: var(--primary);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+      margin-bottom: 14px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      padding: 26px;
+      border-radius: var(--radius-md);
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.16);
+      min-height: 260px;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      background: rgba(110, 231, 249, 0.12);
+      color: var(--primary);
+      font-size: 1.4rem;
+    }
+
+    .card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .card ul {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .card li::before {
+      content: "•";
+      color: var(--primary);
+      font-weight: 900;
+      margin-right: 8px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .feature-panel {
+      border-radius: var(--radius-lg);
+      padding: 34px;
+      background: linear-gradient(135deg, rgba(110,231,249,0.12), rgba(167,139,250,0.1));
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .feature-panel p {
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(110, 231, 249, 0.14);
+      color: var(--primary);
+      font-weight: 900;
+    }
+
+    .step h3 {
+      font-size: 1.02rem;
+      margin-bottom: 4px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .cta {
+      padding-bottom: 96px;
+    }
+
+    .cta-box {
+      border-radius: 34px;
+      padding: clamp(32px, 6vw, 58px);
+      background:
+        linear-gradient(135deg, rgba(110,231,249,0.18), rgba(167,139,250,0.14)),
+        rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .cta-box p {
+      color: var(--muted);
+      max-width: 650px;
+      margin-top: 12px;
+      font-size: 1.08rem;
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 34px 0;
+      color: var(--muted-2);
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 940px) {
+      .hero-grid,
+      .split,
+      .cta-box {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-card {
+        min-height: 440px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(100% - 28px, var(--max-width));
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 62px;
+      }
+
+      .trust-row,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-card {
+        min-height: 520px;
+      }
+
+      .node-top,
+      .node-right,
+      .node-bottom,
+      .node-mini,
+      .node-main {
+        position: relative;
+        inset: auto;
+        transform: none;
+        width: 100%;
+        margin-bottom: 12px;
+      }
+
+      .node-main {
+        text-align: left;
+      }
+
+      .pulse {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Cyrus Intelligent Systems home">
+        <div class="brand-mark">CI</div>
+        <div class="brand-text">
+          Cyrus Intelligent Systems
+          <span>AI • Software • R&D</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#approach">Approach</a>
+        <a href="#collaboration">Collaboration</a>
+        <a class="button" href="mailto:contact@cyrusintelligentsystems.ca">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Canadian AI & software company</div>
+          <h1>Building <span class="gradient-text">intelligent systems</span> for real-world impact.</h1>
+          <p class="hero-copy">
+            Cyrus Intelligent Systems Inc. helps organizations design, build, and evaluate practical AI, software, automation, and data-driven solutions for industry, government, and research collaboration.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:contact@cyrusintelligentsystems.ca">Start a conversation</a>
+            <a class="button" href="https://github.com/cyrusintelligentsystems" target="_blank" rel="noreferrer">View GitHub</a>
+          </div>
+          <div class="trust-row" aria-label="Company highlights">
+            <div class="trust-item"><strong>AI-first</strong>Practical intelligent systems and automation.</div>
+            <div class="trust-item"><strong>Research-ready</strong>Built for R&D, pilots, and evaluation.</div>
+            <div class="trust-item"><strong>Canada-based</strong>Serving Canadian and global partners.</div>
+          </div>
+        </div>
+
+        <div class="visual-card" aria-label="Intelligent systems visual diagram">
+          <div class="system-node node-main">
+            <div class="pulse"></div>
+            <h3>Cyrus Intelligent Systems</h3>
+            <p>Connecting AI, software, data, and responsible deployment.</p>
+          </div>
+          <div class="system-node node-top">
+            <h3>AI Solutions</h3>
+            <p>LLMs, RAG, agents, analytics, and automation.</p>
+          </div>
+          <div class="system-node node-right">
+            <h3>Software Engineering</h3>
+            <p>Web apps, APIs, cloud systems, and developer tools.</p>
+          </div>
+          <div class="system-node node-bottom">
+            <h3>Evaluation & Trust</h3>
+            <p>Testing, monitoring, explainability, and governance.</p>
+          </div>
+          <div class="system-node node-mini">
+            <h3>R&D</h3>
+            <p>Prototypes, pilots, and applied research.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Services</div>
+          <h2>From idea to deployable intelligent system.</h2>
+          <p>We support organizations across the full path: understanding the problem, designing the system, building the prototype, evaluating performance, and preparing for responsible deployment.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">AI</div>
+            <h3>AI & Intelligent Systems</h3>
+            <p>Design and development of AI-enabled tools that solve concrete business, research, and operational problems.</p>
+            <ul>
+              <li>Generative AI applications</li>
+              <li>RAG and knowledge assistants</li>
+              <li>Agentic AI workflows</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">{ }</div>
+            <h3>Software Development</h3>
+            <p>Modern software systems built with clean architecture, practical engineering, and maintainability in mind.</p>
+            <ul>
+              <li>Web applications and dashboards</li>
+              <li>APIs and backend systems</li>
+              <li>Cloud-ready prototypes</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">↗</div>
+            <h3>Data, Automation & Analytics</h3>
+            <p>Turn documents, workflows, and operational data into useful automation and decision-support tools.</p>
+            <ul>
+              <li>Data pipelines and reporting</li>
+              <li>Process automation</li>
+              <li>Technical decision support</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="container split">
+        <div class="feature-panel">
+          <div class="section-kicker">Approach</div>
+          <h2>Practical, responsible, and measurable.</h2>
+          <p>
+            Good AI systems need more than a model. They need clear requirements, reliable data, careful evaluation, security-aware design, and a plan for how people will actually use them.
+          </p>
+          <p>
+            Our approach combines software engineering, AI research, and evaluation-focused development so that solutions are useful, trustworthy, and ready for real organizational settings.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div>
+              <h3>Understand the problem</h3>
+              <p>We clarify the use case, users, constraints, data sources, risks, and success criteria before building.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div>
+              <h3>Build a focused prototype</h3>
+              <p>We develop a practical version of the system quickly, with room to iterate based on real feedback.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div>
+              <h3>Evaluate and improve</h3>
+              <p>We test quality, reliability, usability, and limitations so the system can be improved with evidence.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div>
+              <h3>Prepare for deployment</h3>
+              <p>We support documentation, maintainability, monitoring, and responsible use in real environments.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="collaboration">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Collaboration</div>
+          <h2>Built for industry, government, and research partners.</h2>
+          <p>Cyrus Intelligent Systems Inc. is designed to support applied AI and software projects with private companies, public-sector organizations, academic groups, and non-profit partners.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">◎</div>
+            <h3>For companies</h3>
+            <p>Prototype new AI products, automate internal workflows, improve decision support, and build custom software tools.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">◇</div>
+            <h3>For public-sector teams</h3>
+            <p>Explore trustworthy AI, data-driven services, internal knowledge assistants, and evaluation-first pilots.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">✦</div>
+            <h3>For research partners</h3>
+            <p>Collaborate on applied R&D, student projects, grant-aligned prototypes, and responsible AI evaluation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <div class="section-kicker">Get in touch</div>
+            <h2>Have an AI or software idea to explore?</h2>
+            <p>Send a short note about your organization, project idea, or technical challenge. We would be happy to discuss how Cyrus Intelligent Systems Inc. can help.</p>
+          </div>
+          <a class="button primary" href="mailto:contact@cyrusintelligentsystems.ca">contact@cyrusintelligentsystems.ca</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>© <span id="year"></span> Cyrus Intelligent Systems Inc. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="mailto:contact@cyrusintelligentsystems.ca">Email</a>
+        <a href="https://github.com/cyrusintelligentsystems" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="#top">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
